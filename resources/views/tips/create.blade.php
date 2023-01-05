@@ -46,7 +46,7 @@
                 <div class="col-md-3 mb-3">
                     <label for="inputcorrecttip" class="form-label">Correct Tip</label>
                     <select name="correct_tip" id="correct_tip" class="form-select form-control" aria-label="Default select example" autofocus>
-                        <!--<option selected>Select correct tip</option>-->
+                        <option disabled selected>Select correct tip</option>
                         <option value="Home">Home</option>
                         <option value="Draw">Draw</option>
                         <option value="Away">Away</option>
@@ -91,9 +91,8 @@
             </div>
 
             <div class="mb-3 mt-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vip_tips">
+                <input type="checkbox" name="is_vip" class="form-check-input" id="vip_tips">
                 <label id="vip_status_label" class="form-check-label text-primary" for="vip_status"><strong>Check for VIP tips</strong></label>
-                <input type="hidden" name="vip_status" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-secondary">Add Tip</button>

@@ -12,7 +12,7 @@
     </div>
 
     @if(count($tips) > 0)
-
+        <a class="btn btn-sm btn-primary" href="{{ route('tip.show.create.form') }}">New Tip</a>
         @include('tips.partials.tips-table')
 
     @else

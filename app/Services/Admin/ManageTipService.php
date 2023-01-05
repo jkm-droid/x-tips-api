@@ -19,18 +19,18 @@ class ManageTipService
      */
     public function viewAllTips()
     {
-        $tips = Tip::paginate(AppConstants::$pagination);
+        $tips = Tip::orderBy('created_at','desc')->paginate(AppConstants::$pagination);
 
         return view('tips.index',compact('tips'));
     }
 
     /**
-     * @param $tipRequest
+     * @param $tip_request
      * @return RedirectResponse
      */
-    public function createNewTip($tipRequest)
+    public function createNewTip($tip_request)
     {
-        $tipRequest->validate([
+        $tip_request->validate([
             'team_a' => 'required|string',
             'team_b'  => 'required|string',
             'country_league'  => 'required|string',
@@ -40,12 +40,13 @@ class ManageTipService
         ]);
 
         Tip::create([
-            'team_a' => $tipRequest['team_a'],
-            'team_b'  => $tipRequest['team_b'],
-            'country_league'  => $tipRequest['country_league'],
-            'correct_tip' => $tipRequest['correct_tip'],
-            'correct_odd' => $tipRequest['correct_odd'],
-            'match_time' => $tipRequest['match_time']
+            'team_a' => $tip_request['team_a'],
+            'team_b'  => $tip_request['team_b'],
+            'country_league'  => $tip_request['country_league'],
+            'correct_tip' => $tip_request['correct_tip'],
+            'correct_odd' => $tip_request['correct_odd'],
+            'match_time' => $tip_request['match_time'],
+            'is_vip' => $tip_request->has('is_vip') ? 1 : 0
         ]);
 
         return redirect()->route('tip.all')->with('success',"Tip created successfully");
