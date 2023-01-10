@@ -19,6 +19,7 @@ class UserController extends Controller
 
     public function __construct(UserService $userService)
     {
+        $this->middleware('guest:web')->except('logoutUser');
         $this->_userService = $userService;
     }
 

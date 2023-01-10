@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TipResource;
 use App\Services\Api\TipService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class TipController extends Controller
 {
@@ -26,7 +25,7 @@ class TipController extends Controller
      * View all tips
      *
      * This endpoint lets you get all the tips from the storage
-     * @return AnonymousResourceCollection
+     * @return JsonResponse
      */
     public function viewAllTips()
     {
@@ -50,7 +49,7 @@ class TipController extends Controller
      * This endpoint lets you get a single tip using its id
      * Throws an error if the tip is not found in storage
      * @param $tip_id
-     * @return TipResource
+     * @return JsonResponse
      * @throws CustomException
      */
     public function viewTip($tip_id)

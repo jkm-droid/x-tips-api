@@ -1,11 +1,7 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Notifications;
 
-use App\Constants\AppConstants;
-use App\Models\Admin;
-use App\Models\Contribution;
-use App\Notifications\MemberNotification;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

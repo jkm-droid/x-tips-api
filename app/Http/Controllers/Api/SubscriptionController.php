@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\Api;
+namespace App\Http\Controllers\Api;
 
 use App\Exceptions\CustomException;
-use App\Http\Controllers\Api\Controller;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Resources\SubscriptionResource;
-use App\Services\Admin\SubscriptionService;
+use App\Services\Api\SubscriptionService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
