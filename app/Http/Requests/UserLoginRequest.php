@@ -28,6 +28,7 @@ class UserLoginRequest extends FormRequest
         return [
             'username' => 'required|min:4',
             'password' => 'required|min:6',
+            'device_name' => 'required|min:6',
         ];
     }
 

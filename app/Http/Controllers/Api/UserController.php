@@ -36,18 +36,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display all the users
-     *
-     * This endpoint lets you get all the registered users from the storage
-     * @return AnonymousResourceCollection
-     * @throws CustomException
-     */
-    public function viewAllUsers()
-    {
-        return $this->_userService->getAllUsers();
-    }
-
-    /**
      * Login user into the system
      *
      * This endpoint lets you sign in a user into the system

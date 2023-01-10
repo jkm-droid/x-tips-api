@@ -8,6 +8,5 @@ Route::post('/user/register', [UserController::class, 'registerUser'])->name('re
 Route::post('/user/login', [UserController::class, 'loginUser'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/user/all', [UserController::class, 'viewAllUsers'])->name('all');
     Route::post('/user/logout', [UserController::class, 'logoutUser'])->name('logout');
 });

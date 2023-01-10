@@ -37,18 +37,6 @@ class UserService
     }
 
     /**
-     * @return AnonymousResourceCollection
-     * @throws CustomException
-     */
-    public function getAllUsers()
-    {
-        $users = User::all();
-        if ($users->isEmpty())
-            throw new CustomException("No users were found", 404);
-
-        return UserResource::collection($users);
-    }
-    /**
      * @param $loginRequest
      * @return JsonResponse
      */
@@ -61,7 +49,7 @@ class UserService
                 ->orWhere('username',$loginRequest['username'])
                 ->firstOrFail();
 
-            $token = $user->createToken('authToken')->plainTextToken;
+            $token = $user->createToken($loginRequest['device_name'])->plainTextToken;
 
             return response()->json([
                 'message' => "logged in successfully",
@@ -78,7 +66,7 @@ class UserService
     /**
      * @return JsonResponse
      */
-    public function logoutUser(): JsonResponse
+    public function logoutUser()
     {
         auth()->user()->tokens()->delete();
 
